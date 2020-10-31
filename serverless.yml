@@ -1,0 +1,45 @@
+service: simple-sms-service
+
+frameworkVersion: '2'
+
+plugins:
+  - serverless-iam-roles-per-function
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-southeast-2
+  environment:
+    STAGE: ${self:provider.stage}
+    REGION: ${self:provider.region}
+  iamRoleStatements:
+    - ${file(./resources/iam-policies.yml):AWS_Translate_IAM}
+    - ${file(./resources/iam-policies.yml):AWS_Comprehend_IAM}
+
+package:
+  excludeDevDependencies: true
+  exclude:
+    - buildspec.yml
+    - pipeline.yml
+    - README.md
+    
+functions:
+  sms-handler:
+    handler: src/handlers/sms-handler.handler
+    events:
+      - http:
+          path: sms
+          method: post
+
+  numbers-handler:
+    handler: src/handlers/numbers-handler.handler
+    events:
+      - http:
+          path: numbers
+          method: get
+
+  history-handler:
+    handler: src/handlers/history-handler.handler
+    events:
+      - http:
+          path: history
+          method: get

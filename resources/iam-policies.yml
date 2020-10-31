@@ -1,0 +1,9 @@
+AWS_Translate_IAM:
+  Effect: Allow
+  Action: translate:*
+  Resource: "*"
+
+AWS_Comprehend_IAM:
+  Effect: Allow
+  Action: comprehend:DetectDominantLanguage
+  Resource: "*"
