@@ -1,0 +1,23 @@
+{
+  "name": "simple-sms-service",
+  "version": "1.0.0",
+  "description": "a simple sms api",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "author": "Shakeel Mohammed",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-iam-roles-per-function": "^2.0.2",
+    "supertest": "^5.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "twilio": "^3.50.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
