@@ -278,4 +278,4 @@ curl --location --request GET 'https://{YOUR OWN ENDPOINT}.execute-api.ap-southe
 ```
 
 ## Plans for the future
-In the future, a /email endpoint would be another useful endpoint to add to the stack. Creating an email channel could potentially be built to use AWS SES for delivery.
+In the future, a /email endpoint would be another useful endpoint to add to the stack. Creating an email channel could prove to be useful and potentially built to use AWS SES for delivery.
